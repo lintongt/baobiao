@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.0/dist/echarts.js"></script>
+</head>
+
+<body style="width: 1680px;height:850px;">
+    <!-- 显示每日添加好友数量-->
+    <div id="main" style="width: 40%;height:40%; "></div>
+    <!-- 显示每日进群好友数量-->
+    <div id="qun" style="width: 40%;height:40%; "></div>
+    <!-- 显示每日群活跃聊天-->
+    <div id="liveness" style="width: 40%;height:40%; position: absolute; top: 0; right: 0;"></div>
+    <!-- 显示每天付费转化率-->
+    <div id="cvr" style="width: 40%;height:40%; position: absolute; top: 400px; right: 0;"></div>
+    <script type="text/javascript">
+        // 基于每日添加好友数量
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            title: {
+                text: '每日添加好友数量'
+            },
+            xAxis: {
+                type: 'category',
+                data: ['20211010', '20211011', '20211012']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    data: [240, 320, 120],
+                    type: 'line',
+                    stack: 'x',
+                    areaStyle: {},
+                    label: {
+                        show: true,
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        // 基于每日好友进群数量
+        var myQun = echarts.init(document.getElementById('qun'));
+        q = {
+            title: {
+                text: '每日好友进群数量'
+            },
+            xAxis: {
+                type: 'category',
+                data: ['20211010', '20211011', '20211012']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+
+                {
+                    data: [213, 300, 110],
+                    type: 'line',
+                    stack: 'x',
+                    areaStyle: {},
+                    label: {
+                        show: true,
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myQun.setOption(q);
+        // 基于准备好的dom，初始化echarts实例
+        var Myliveness = echarts.init(document.getElementById('liveness'));
+
+        // 指定图表的配置项和数据
+        var liveness = {
+            title: {
+                text: '当前群每天的发⾔数量' + new Date().toLocaleString()
+            },
+            tooltip: {},
+            legend: {
+                data: ['发言数量']
+            },
+            xAxis: {
+                data: ['试学班1群', '试学班2群', '试学班3群', '试学班4群', '试学班5群', '试学班6群']
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: '数量',
+                    type: 'bar',
+                    data: [208, 244, 362, 420, 114, 90],
+                    label: {
+                        show: true
+
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        Myliveness.setOption(liveness);
+        // 基于准备好的dom，初始化echarts实例
+        var Myliveness = echarts.init(document.getElementById('liveness'));
+
+        // 指定图表的配置项和数据
+        var liveness = {
+            title: {
+                text: '当前群每天的发⾔数量' + new Date().toLocaleString()
+            },
+            tooltip: {},
+            legend: {
+                data: ['发言数量']
+            },
+            xAxis: {
+                data: ['试学班1群', '试学班2群', '试学班3群', '试学班4群', '试学班5群', '试学班6群']
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: '数量',
+                    type: 'bar',
+                    data: [208, 244, 362, 420, 114, 90],
+                    label: {
+                        show: true
+
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        Myliveness.setOption(liveness);
+        // 基于准备好的dom，做饼图统计每天付费转化率
+        var MyCvr = echarts.init(document.getElementById('cvr'));
+
+        // 指定图表的配置项和数据
+        var cvr = {
+            title: {
+                text: '付费转化率' + new Date().toLocaleString()
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            series: [
+                {
+                    type: 'pie',
+                    name: '转化总人数',
+                    data: [
+                        value = 50,
+                        {
+                            value: 6,
+                            name: '一群'
+                        },
+                        {
+                            value: 11,
+                            name: '二群'
+                        },
+                        {
+                            value: 9,
+                            name: '三群'
+                        }
+                    ],
+                    radius: '50%'
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        MyCvr.setOption(cvr);
+
+    </script>
+</body>
+
+</html>
